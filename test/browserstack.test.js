@@ -1,18 +1,17 @@
 import sinon from 'sinon';
-import chai from 'chai';
+import { expect } from 'chai';
 
 import { Browserstack } from '../src/transports/browserstack';
 import { Selenium } from '../src/transports/selenium';
 import wdio from '../src';
 
-const expect = chai.expect;
-
 describe('browserstack', function describe() {
-  let selenium = new Selenium();
   let wd;
+  let selenium = new Selenium();
 
   before(function() {
     this.timeout(0);
+
     return selenium.start();
   });
 

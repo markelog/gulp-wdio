@@ -1,18 +1,18 @@
-import assert from 'assert';
+import { expect } from 'chai';
 
 describe('gulp-wdio test', () => {
   describe('browserstack local', () => {
     it('should have right options', () => {
-      assert.strictEqual(browser.options.waitforTimeout, 12345);
-      assert.strictEqual(browser.options.coloredLogs, true);
-      assert.strictEqual(browser.options.logLevel, 'verbose');
-      assert.strictEqual(browser.options.cucumberOpts.require, 'nothing');
+      expect(browser.options.waitforTimeout).to.equal(12345);
+      expect(browser.options.coloredLogs).to.equal(true);
+      expect(browser.options.logLevel).to.equal('verbose');
+      expect(browser.options.cucumberOpts.require).to.equal( 'nothing');
     });
 
     it('checks if title contains the search query', () => {
       browser.url('/');
       var title = browser.getTitle();
-      assert.strictEqual(title, 'WebdriverIO - Selenium 2.0 javascript bindings for nodejs');
+      expect(title).to.equal('WebdriverIO - Selenium 2.0 javascript bindings for nodejs');
     });
   });
 });
