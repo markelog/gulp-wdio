@@ -1,0 +1,55 @@
+{
+  "name": "gulp-wdio",
+  "version": "1.0.0",
+  "description": "gulp plugin for wedriver.io with built-in selenium and browserstack support",
+  "main": "dist/index.js",
+  "scripts": {
+    "lint": "eslint src test",
+    "build": "babel -d dist src",
+    "watch": "chokidar src test -c 'npm run build'",
+    "test": "npm run lint && mocha",
+    "prepublish": "npm run build"
+  },
+  "repository": "markelog/gulp-wdio",
+  "keywords": [
+    "selenium",
+    "webdriver",
+    "webdriver.io",
+    "gulp",
+    "wdio",
+    "test",
+    "integration",
+    "browserstack"
+  ],
+  "author": "Oleg Gaidarenko <markelog@gmail.com>",
+  "license": "MIT",
+  "bugs": "https://github.com/markelog/gulp-wdio/issues",
+  "homepage": "https://github.com/markelog/gulp-wdio",
+  "dependencies": {
+    "browserstacktunnel-wrapper": "^1.4.2",
+    "gulp-util": "^3.0.7",
+    "selenium-standalone": "^5.0.0",
+    "through2": "^0.6.5",
+    "webdriverio": "^4.0.7"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.6.5",
+    "babel-core": "^6.7.2",
+    "babel-eslint": "^6.0.4",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-runtime": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-register": "^6.9.0",
+    "chai": "^3.5.0",
+    "chokidar-cli": "^1.2.0",
+    "eslint": "^2.10.2",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.8.0",
+    "gulp": "^3.8.11",
+    "gulp-util": "^3.0.7",
+    "mocha": "^2.4.5",
+    "mocha-silent-reporter": "^1.0.0",
+    "sinon": "^1.17.4",
+    "wdio-mocha-framework": "^0.2.12"
+  }
+}

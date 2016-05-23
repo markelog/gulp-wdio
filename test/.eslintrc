@@ -1,0 +1,9 @@
+extends: ../.eslintrc
+rules:
+  // For to.not.be.empty is there an alternative?
+  no-unused-expressions
+env:
+  mocha: true
+globals:
+  expect: true
+  request: true
