@@ -56,9 +56,9 @@ export class Selenium extends EventEmitter {
     return new Promise(resolve => {
       // Since child defined only at the "start"
       if (this.child) {
-        this.emit('stop', 'Selenium stopped');
         this.child.kill();
         this.child = null;
+        this.emit('stop', 'Selenium stopped');
       }
 
       resolve();
