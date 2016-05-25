@@ -10,7 +10,7 @@ Same as [gulp-webdriver](https://github.com/webdriverio/gulp-webdriver) with thr
 So you could just simple do –
 ```js
 gulp.task('e2e', () => {
-  gulp.src(paths.wdio.local).pipe(wdio({
+  return gulp.src(paths.wdio.local).pipe(wdio({
 
     // Omit "type" property if you want start wdio without additional layers
     type: 'selenium' // or "browserstack"
