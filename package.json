@@ -26,6 +26,7 @@
   "bugs": "https://github.com/markelog/gulp-wdio/issues",
   "homepage": "https://github.com/markelog/gulp-wdio",
   "dependencies": {
+    "babel-runtime": "^6.22.0",
     "browserstacktunnel-wrapper": "^1.4.2",
     "gulp-util": "^3.0.7",
     "selenium-standalone": "^6.0.1",
