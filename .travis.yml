@@ -13,4 +13,6 @@ before_script:
   - sleep 3 # give xvfb some time to start
 
 node_js:
+  - "4"
   - "6"
+  - "7"
