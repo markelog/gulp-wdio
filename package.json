@@ -27,7 +27,7 @@
   "homepage": "https://github.com/markelog/gulp-wdio",
   "dependencies": {
     "babel-runtime": "^6.22.0",
-    "browserstacktunnel-wrapper": "^1.4.2",
+    "browserstacktunnel-wrapper": "^2.0.0",
     "gulp-util": "^3.0.7",
     "selenium-standalone": "^6.0.1",
     "through2": "^0.6.5",
