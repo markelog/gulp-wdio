@@ -9,9 +9,9 @@ Same as [gulp-webdriver](https://github.com/webdriverio/gulp-webdriver) with thr
 
 So you could just simple do –
 ```js
-var wdio = require('gulp-wdio');
+const wdio = require('gulp-wdio');
 
-gulp.task('e2e', function () {
+gulp.task('e2e', () => {
   return gulp.src('path/to/wdio.conf.js').pipe(wdio({
 
     // Omit "type" property if you want start wdio without additional layers
