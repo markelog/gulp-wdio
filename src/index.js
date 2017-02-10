@@ -12,7 +12,13 @@ const transports = {
   hollow: Hollow
 };
 
-function emitError(transport, error) {
+function emitError(error) {
+
+  // Don't listen for yourself
+  if (error instanceof gutil.PluginError) {
+    return;
+  }
+
   process.stdin.pause();
 
   const pluginError = new gutil.PluginError({
@@ -20,7 +26,6 @@ function emitError(transport, error) {
     message: error
   });
 
-  transport.stop();
   process.nextTick(() => {
     this.emit('error', pluginError);
   });
@@ -35,7 +40,7 @@ export default (options) => {
     const config = wdio.configParser.getConfig();
 
     const transport = new Transport(config);
-    const showError = emitError.bind(this, transport);
+    const showError = emitError.bind(this);
 
     transport.on('error', showError);
 
@@ -53,13 +58,14 @@ export default (options) => {
       return wdio.run().then(code => {
         if (code !== 0) {
           showError(`wdio exited with code ${code}`);
+          transport.stop();
         } else {
           process.stdin.pause();
         }
 
         callback();
       });
-    });
+    }).catch(showError);
 
     return this;
   });

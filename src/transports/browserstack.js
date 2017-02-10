@@ -34,6 +34,10 @@ export class Browserstack extends EventEmitter {
   }
 
   stop() {
+    if (this.tunnel.state !== 'started') {
+      return new Promise(resolve => resolve());
+    }
+
     return new Promise((resolve, reject) => {
       this.tunnel.stop(error => {
         if (error) {
