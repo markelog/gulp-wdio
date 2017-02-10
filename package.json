@@ -29,7 +29,7 @@
     "babel-runtime": "^6.22.0",
     "browserstacktunnel-wrapper": "^2.0.0",
     "gulp-util": "^3.0.7",
-    "selenium-standalone": "^6.0.1",
+    "selenium-standalone": "^5.0.0",
     "through2": "^0.6.5",
     "webdriverio": "^4.0.7"
   },
