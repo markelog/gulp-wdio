@@ -68,7 +68,10 @@ describe('browserstack', function describe() {
 
   it('should start "through" browserstack tunnel', function(done) {
     this.timeout(0);
-    sinon.stub(Browserstack.prototype, 'start').returns(new Promise(resolve => resolve()));
+
+    const promise = new Promise(resolve => resolve()).catch(() => {})
+
+    sinon.stub(Browserstack.prototype, 'start').returns(promise);
 
     wd.on('finish', () => done());
 
