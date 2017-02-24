@@ -9,11 +9,10 @@ import { Hollow } from './transports/hollow';
 const transports = {
   browserstack: Browserstack,
   selenium: Selenium,
-  hollow: Hollow
+  hollow: Hollow,
 };
 
 function emitError(error) {
-
   // Don't listen for yourself
   if (error instanceof gutil.PluginError) {
     return;
@@ -23,7 +22,7 @@ function emitError(error) {
 
   const pluginError = new gutil.PluginError({
     plugin: 'gulp-wdio',
-    message: error
+    message: error,
   });
 
   process.nextTick(() => {
@@ -54,18 +53,16 @@ export default (options) => {
     process.on('uncaughtException', () => transport.stop());
     process.on('exit', () => transport.stop());
 
-    transport.start().then(() => {
-      return wdio.run().then(code => {
-        if (code !== 0) {
-          showError(`wdio exited with code ${code}`);
-          transport.stop();
-        } else {
-          process.stdin.pause();
-        }
+    transport.start().then(() => wdio.run().then((code) => {
+      if (code !== 0) {
+        showError(`wdio exited with code ${code}`);
+        transport.stop();
+      } else {
+        process.stdin.pause();
+      }
 
-        callback();
-      });
-    }).catch(showError);
+      callback();
+    })).catch(showError);
 
     return this;
   });

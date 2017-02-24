@@ -20,7 +20,7 @@ export class Browserstack extends EventEmitter {
 
   start() {
     return new Promise((resolve, reject) => {
-      this.tunnel.start(error => {
+      this.tunnel.start((error) => {
         if (error) {
           this.emit('error', error);
           reject(error);
@@ -39,7 +39,7 @@ export class Browserstack extends EventEmitter {
     }
 
     return new Promise((resolve, reject) => {
-      this.tunnel.stop(error => {
+      this.tunnel.stop((error) => {
         if (error) {
           this.emit('error', error);
           reject(error);

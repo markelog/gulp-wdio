@@ -11,13 +11,13 @@ export class Selenium extends EventEmitter {
     this.config = {
       logger: (message) => {
         this.emit('message', message);
-      }
+      },
     };
   }
 
   install() {
     return new Promise((resolve, reject) => {
-      selenium.install(this.config, error => {
+      selenium.install(this.config, (error) => {
         if (error) {
           this.emit('error', error);
           reject(error);
@@ -34,8 +34,8 @@ export class Selenium extends EventEmitter {
       this.install().then(() => {
         selenium.start({
           spawnOptions: {
-            stdio: 'ignore'
-          }
+            stdio: 'ignore',
+          },
         }, (error, child) => {
           if (error) {
             this.emit('error', error);
@@ -53,7 +53,7 @@ export class Selenium extends EventEmitter {
   }
 
   stop() {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       // Since child defined only at the "start"
       if (this.child) {
         this.child.kill();
