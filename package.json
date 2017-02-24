@@ -1,6 +1,6 @@
 {
   "name": "gulp-wdio",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "gulp plugin for wedriver.io with built-in selenium and browserstack support",
   "main": "dist/index.js",
   "scripts": {
