@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.org/markelog/gulp-wdio.svg?branch=master)](https://travis-ci.org/markelog/gulp-wdio)
-
-# gulp-wdio
+# gulp-wdio [![Build Status](https://travis-ci.org/markelog/gulp-wdio.svg?branch=master)](https://travis-ci.org/markelog/gulp-wdio)
 
 Same as [gulp-webdriver](https://github.com/webdriverio/gulp-webdriver) with three key differences:
 - built-in browserstack support
